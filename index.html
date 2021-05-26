@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <h3>Name:{{person.name}}</h3>
+    <h3>Age:{{person.age}}</h3>
+    <h3>Hobby:{{person.fav}}</h3>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+    <h3>{{msg}}</h3>
+    <h2 v-text="msg"></h2>
+    <h2 v-html="htmlStr"></h2>
+    <input type="text" v-model="msg">
+    <h2 v-bind:title="title">v-bind:title=>show!</h2>
+    <h2 v-bind:title="title">:title=>show!</h2>
+    <!-- button -->
+    <button v-on:click="del">-</button>
+    &nbsp;
+    <span>{{count}}</span>
+    &nbsp;
+    <button @click="add">+</button>
+  </div>
+  <script src="./observer.js"></script>
+  <script src="./MVue.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+  <script>
+    const app = new MVue({
+      el:'#app',
+      data:{
+        person:{
+          name:'Nora',
+          age:10,
+          fav:'Hobby'
+        },
+        msg:'I am the messsage',
+        htmlStr:'<b>I am the html string</b>',
+        title:'I am the element title',
+        count:0
+      },
+      methods: {
+        add(){
+          this.count++
+        },
+        del(){
+          this.count--
+        }
+      },
+    })
+  </script>
+</body>
+</html>
